@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/components/*": ["./src/components/*"]
+    },
+    // "typeRoots": ["./typings/"]
+  },
+  "include": ["./src", "./vite.config.ts"],
+  "exclude": ["node_modules"]
+}

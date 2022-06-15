@@ -1,0 +1,25 @@
+{
+  "name": "unamed",
+  "version": "0.0.1",
+  "description": "unnamed",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "Tiger3018",
+  "license": "MIT License",
+  "devDependencies": {
+    "@types/node": "^17.0.42",
+    "husky": "^8.0.1",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^1.3.2",
+    "react": "^18.1.0",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^18.1.0",
+    "react-joystick-component": "^4.0.1",
+    "vite": "^2.9.12"
+  }
+}
