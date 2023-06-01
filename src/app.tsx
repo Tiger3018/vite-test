@@ -1,29 +1,70 @@
-import ControlPannel from "@/components/controlBasic";
-import { Navbar, Container } from "react-bootstrap";
+import React from "react";
+import {
+  Layout,
+  Breadcrumb,
+  theme,
+  Menu,
+  Avatar,
+  Input,
+  Space,
+  Button,
+} from "antd";
+import { SettingOutlined } from "@ant-design/icons";
+//import "antd/dist/reset.css";
+
+const { Header, Content, Sider, Footer } = Layout;
+
+const nullCall = (v: string) => null;
 
 export default function App() {
+  const [keyValue, setKeyValue] = React.useState(
+    "1"
+  );
+  const [inputValue, setInputValue] = React.useState(
+    "Alice, Bob, Anonymous User"
+  );
+  const inputCall = (e: React.ChangeEvent) => setInputValue(e.target.value);
+  const editCall = () => (setKeyValue(inputValue));
   return (
     <>
-      <header>
-        <Navbar bg="dark" variant="dark">
-          <Container>
-            <Navbar.Brand href="#home">
-              <img
-                alt=""
-                src="/vite.svg"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-              />{" "}
-              React Bootstrap
-            </Navbar.Brand>
-          </Container>
-        </Navbar>
-      </header>
-      <main>
-        <Container><ControlPannel></ControlPannel></Container>
-      </main>
-      <footer></footer>
+      <Layout>
+        <Header>
+          <Menu
+            mode="inline"
+            items={[
+              {
+                label: `App`,
+                children: [{ label: "Home" }, { label: "About" }],
+              },
+            ]}
+          ></Menu>
+        </Header>
+        <Content style={{ padding: "1em 3em" }}>
+          <Space>
+            Hello 你好
+            <Space.Compact style={{}}>
+              <Avatar.Group maxCount={2} size="large">
+                <Avatar
+                  shape="square"
+                  src={`https://xsgames.co/randomusers/avatar.php?g=pixel&key=${keyValue}`}
+                />
+                <Avatar style={{ backgroundColor: "#e5e5e5" }} size="large">
+                  AU
+                </Avatar>
+                <Avatar size="large">UA</Avatar>
+              </Avatar.Group>
+              <Space.Compact>
+                <Input value={inputValue} onChange={inputCall} />
+                <Button type="primary" onClick={editCall}>
+                  Submit
+                </Button>
+              </Space.Compact>
+            </Space.Compact>
+            ! Weclome back.
+          </Space>
+        </Content>
+        <Footer></Footer>
+      </Layout>
     </>
   );
 }
